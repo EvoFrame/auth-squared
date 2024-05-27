@@ -1,0 +1,18 @@
+# ---------------------------------------------------------------------------------------------------- #
+# Description: This workflow is used to label pull requests based on the configuration
+# in the .github/labeler.yml file.
+# ---------------------------------------------------------------------------------------------------- #
+name: Labeler
+
+on:
+  # Triggers the workflow on pull request events
+  pull_request_target:
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  labeler:
+    uses: EvoFrame/common-workflows/.github/workflows/mngt-labeler.yml@main
+    with:
+      labeler-config: .github/labeler.yml

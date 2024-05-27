@@ -1,0 +1,19 @@
+# ---------------------------------------------------------------------------------------------------- #
+# Description: This workflow is used to close stale issues and pull requests.
+# ---------------------------------------------------------------------------------------------------- #
+name: Staler
+
+on:
+  # Triggers the workflow on a schedule
+  schedule:
+    - cron: "0 3 * * *"
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  stale:
+    permissions:
+      issues: write
+      pull-requests: write
+    uses: EvoFrame/common-workflows/.github/workflows/mngt-staler.yml@main
